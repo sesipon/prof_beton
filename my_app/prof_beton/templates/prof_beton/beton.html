@@ -1,0 +1,27 @@
+{% extends 'prof_beton/base.html' %}
+{% block title %} Бетон {% endblock %}
+
+{% block content %}<h1>БЕТОН</h1>
+
+<table>
+  <tr>
+    <th> Марка </th>
+    <th> Морозостойкость </th>
+    <th> Водонепроницаемость </th>
+    <th> Подвижность </th>
+    <th> Цена за м3 </th>
+  </tr>
+  {% for i in beton %}
+  <tr>
+    <td>{{ i.name }}</td>
+    <td>{{ i.frost_resistance }}</td>
+    <td>{{ i.water_resistance }}</td>
+    <td>{{ i.mobility }}</td>
+    <td>{{ i.price }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>
+
+{% endblock %}

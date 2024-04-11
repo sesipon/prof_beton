@@ -1,0 +1,19 @@
+{% extends 'prof_beton/base.html' %}
+
+{% block title %}  Профиль {% endblock %}
+
+{% block content %}
+<h1>Профиль {{ user.username }}</h1>
+<p>Последний вход был совершен: {{ user.last_login }}</p>
+{% if user.email %}
+<p>Почта: {{user.email }}</p>
+{% endif %}
+
+
+<form action="{% url 'user:'profile" method="post">
+    <p>Фамилия {{user.last_name }}</p>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Изменить</button>
+</form>
+{% endblock %}
