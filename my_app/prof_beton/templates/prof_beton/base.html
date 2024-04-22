@@ -44,11 +44,11 @@
     <a href="{% url 'prof_beton:beton' %}">Бетон</a>
     {% if user.is_authenticated %}
     <a href="{% url 'user:profile' user.id %}"> Привет {{ user.username }}!</a>
-    <a href="{% url 'user:logout' %}">Пока</a>
+    <a href="{% url 'user:logout_view' %}">Пока</a>
 
     {% else %}
-    <a href="{% url 'user:login' %}">Вход</a>
-    <a href="{% url 'user:register' %}">Регистрация</a>
+    <a href="{% url 'user:login_view' %}">Вход</a>
+    <a href="{% url 'user:register_view' %}">Регистрация</a>
     {% endif %}
 
 

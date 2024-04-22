@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
 from .forms import UserRegisterForm, UserLoginForm
@@ -42,3 +42,7 @@ def profile(request, user_id):
     else:
         user = User.objects.get(id=user_id)
         return render(request, 'registration/profile.html', context={'user':user})
+
+def logout_view(request):
+    logout(request)
+    return redirect('user:login_view')
